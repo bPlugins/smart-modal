@@ -1,0 +1,120 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "bpmb/modal-block-plugin",
+	"version": "1.0.0",
+	"title": "Modal Block Plugin",
+	"category": "widgets",
+	"description": "Short description of the block",
+	"keywords": [
+		"modal",
+		"popup",
+		"block",
+		"key4",
+		"key5"
+	],
+	"textdomain": "modal-block-plugin",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": ""
+		},
+		"content": {
+			"type": "object",
+			"default": {
+				"btnText": "Open Financial Services Modal",
+				"title": "Financial Services",
+				"desc": ""
+			}
+		},
+		"button": {
+			"type": "object",
+			"default": {
+				"typo": {
+					"fontSize": {
+						"desktop": 16,
+						"tablet": 14,
+						"mobile": 14
+					},
+					"fontWeight": 400,
+					"lineHeight": "135%"
+				},
+				"colors": {
+					"color": "#000",
+					"bg": "#fff"
+				},
+				"padding": {
+					"top": "14px",
+					"right": "14px",
+					"bottom": "14px",
+					"left": "14px"
+				},
+				"radius": 7,
+				"shadow": [
+					{
+						"hOffset": "1px",
+						"vOffset": "5px",
+						"blur": "18px",
+						"spreed": "-1px",
+						"color": "#0000001a",
+						"isInset": false
+					}
+				],
+				"hShadow": [
+					{
+						"hOffset": "0px",
+						"vOffset": "6px",
+						"blur": "14px",
+						"spreed": "-1px",
+						"color": "#0000002e",
+						"isInset": false
+					}
+				],
+				"borders": {
+					"color": "#72aee6",
+					"style": "solid",
+					"width": "0px"
+				}
+			}
+		},
+		"modal": {
+			"type": "object",
+			"default": {
+				"width": {
+					"desktop": "50%",
+					"tablet": "90%",
+					"mobile": "100%"
+				},
+				"borders": {
+					"top": {
+						"color": "#2563eb",
+						"style": "solid",
+						"width": "3px"
+					}
+				},
+				"radius": 7
+			}
+		}
+	},
+	"supports": {
+		"align": [
+			"wide",
+			"full"
+		],
+		"html": false
+	},
+	"example": {
+		"attributes": {}
+	},
+	"editorScript": [
+		"file:./index.js"
+	],
+	"editorStyle": [
+		"file:./index.css"
+	],
+	"style": [
+		"file:./view.css"
+	],
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
