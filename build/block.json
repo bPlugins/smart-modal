@@ -1,19 +1,19 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "bpmb/modal-block-plugin",
+  "name": "bpsmb/smart-modal-block",
   "version": "1.0.0",
-  "title": "Modal Block Plugin",
+  "title": "Smart Modal",
   "category": "widgets",
-  "description": "Short description of the block",
+  "description": "You can quickly display the title and content in a customizable popup modal by using the Smart Modal plugin.",
   "keywords": [
     "modal",
     "popup",
     "block",
-    "key4",
-    "key5"
+    "content",
+    "smart"
   ],
-  "textdomain": "modal-block-plugin",
+  "textdomain": "smart-modal",
   "attributes": {
     "align": {
       "type": "string",
@@ -30,6 +30,8 @@
     "button": {
       "type": "object",
       "default": {
+        "isFullWidth": true,
+        "align": "left",
         "typo": {
           "fontSize": {
             "desktop": 16,
@@ -92,7 +94,37 @@
             "width": "3px"
           }
         },
-        "radius": 7
+        "radius": 7,
+        "padding": {
+          "top": "20px",
+          "right": "20px",
+          "bottom": "20px",
+          "left": "20px"
+        },
+        "outSColor": "#1e3a8acc",
+        "inSColor": "#eff6ff"
+      }
+    },
+    "closeIcon": {
+      "type": "object",
+      "default": {
+        "color": "#1e3a8a",
+        "hColor": "#1d4ed8"
+      }
+    },
+    "title": {
+      "type": "object",
+      "default": {
+        "typo": {
+          "fontSize": {
+            "desktop": 18,
+            "tablet": 16,
+            "mobile": 14
+          },
+          "fontWeight": 400,
+          "lineHeight": "135%"
+        },
+        "color": "#000"
       }
     }
   },

@@ -1,5 +1,3 @@
-
-import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
 import { TabPanel } from '@wordpress/components';
 
@@ -17,7 +15,7 @@ const Settings = ({ attributes, setAttributes }) => {
 		newAttr[key] = val;
 		setAttributes({ [attr]: newAttr })
 	}
-	const generalProps = { attributes, setAttributes };
+	const generalProps = { attributes, setAttributes, updateObject };
 	const styleProps = { attributes, updateObject, setAttributes };
 
 	return <>

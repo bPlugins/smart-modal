@@ -5,16 +5,16 @@ import Style from './Components/Common/Style';
 import Button from './Components/Common/Button';
 
 document.addEventListener('DOMContentLoaded', () => {
-	const bpmbModalBlockEls = document.querySelectorAll('.wp-block-bpmb-modal-block-plugin');
+	const bpsmbModalBlockEls = document.querySelectorAll('.wp-block-bpsmb-smart-modal-block');
 
-	bpmbModalBlockEls.forEach(bpmbModalBlockEl => {
-		const attributes = JSON.parse(bpmbModalBlockEl.dataset.attributes);
+	bpsmbModalBlockEls.forEach(bpsmbModalBlockEl => {
+		const attributes = JSON.parse(bpsmbModalBlockEl.dataset.attributes);
 
-		createRoot(bpmbModalBlockEl).render(<>
-			<Style attributes={attributes} EleId={bpmbModalBlockEl.id} />
+		createRoot(bpsmbModalBlockEl).render(<>
+			<Style attributes={attributes} EleId={bpsmbModalBlockEl.id} />
 			<Button attributes={attributes} />
 		</>);
 
-		bpmbModalBlockEl?.removeAttribute('data-attributes');
+		bpsmbModalBlockEl?.removeAttribute('data-attributes');
 	});
 });

@@ -9,9 +9,9 @@ const Button = ({ attributes }) => {
 
     const modalPorps = { title, desc, modal, setModal }
 
-    return <div className='bpmb_modal_plugin'>
+    return <div className='bpsmb_modal_plugin'>
         {/* Button */}
-        <div className='bpmb_button_area'>
+        <div className='bpsmb_button_area'>
 
             <button onClick={() => setModal(true)} className='btn'>{btnText}</button>
         </div>

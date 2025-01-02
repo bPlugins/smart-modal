@@ -14,7 +14,7 @@ const Edit = props => {
 	useEffect(() => tabController(), [isSelected]);
 	const [activeIndex, setActiveIndex] = useState(0);
 
-	const id = `bpmb_modal_block-${clientId}`;
+	const id = `bpsmb_smart_modal_block-${clientId}`;
 	return <>
 		<Settings {...{ attributes, setAttributes, activeIndex, setActiveIndex }} />
 

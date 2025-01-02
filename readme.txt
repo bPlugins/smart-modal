@@ -9,14 +9,20 @@ Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Short description of the plugin
+You can quickly display the title and content in a customizable popup modal by using the Smart Modal plugin.
 
 == Description ==
 
+The Smart Modal plugin makes it easy to create stunning and engaging popups to display titles, content, or links. Built specifically for Gutenberg, this plugin provides users with flexibility in design and usage, and ensures a smooth integration with the block editor.
+
+Smart Modal is an ideal tool for highlighting unique content, quickly sharing links, and increasing user engagement. From new to experienced developers, users of all skill levels can use it thanks to its user-friendly interface and easy setup process.
 
 
 ### Smart Modal Features
-- **Feature 1**: Feature 1 description.
+- **Effortless Integration**: Add modals directly from the Gutenberg editor.
+- **Customizable Settings**: Easily modify modal appearance and behavior through the block settings sidebar.
+- **Responsive Design**: Ensures your modals look great on all devices.
+- **Unlimited Use**: Reuse the block as many times as needed on your website.
 
 
 
@@ -111,6 +117,6 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 * Public source code GitHub link for review, study, and contribute.
 
-https://github.com/bplugins/plugin-slug
+https://github.com/bPlugins/smart-modal
 
 For more information on how to contribute to this plugin, please visit our GitHub repository.

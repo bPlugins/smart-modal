@@ -541,9 +541,9 @@ const Button = ({
     setModal
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bpmb_modal_plugin"
+    className: "bpsmb_modal_plugin"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bpmb_button_area"
+    className: "bpsmb_button_area"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: () => setModal(true),
     className: "btn"
@@ -573,13 +573,12 @@ __webpack_require__.r(__webpack_exports__);
 const Modal = ({
   title,
   desc,
-  modal,
   setModal
 }) => {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bpmb_modal_main_area",
+    className: "bpsmb_modal_main_area",
     onClick: e => {
-      if (e.target.classList.contains('bpmb_modal_main_area')) {
+      if (e.target.classList.contains('bpsmb_modal_main_area')) {
         setModal(false);
       }
     }
@@ -588,7 +587,9 @@ const Modal = ({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "closeIcon",
     onClick: () => setModal(false)
-  }, _utils_icons__WEBPACK_IMPORTED_MODULE_1__.closeIcon), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  }, _utils_icons__WEBPACK_IMPORTED_MODULE_1__.closeIcon), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: "title"
+  }, title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "desc",
     dangerouslySetInnerHTML: {
       __html: desc
@@ -622,7 +623,9 @@ const Style = ({
 }) => {
   const {
     button,
-    modal
+    modal,
+    title,
+    closeIcon
   } = attributes;
   const {
     typo,
@@ -631,7 +634,9 @@ const Style = ({
     radius,
     shadow,
     hShadow,
-    borders
+    borders,
+    isFullWidth,
+    align
   } = button;
   const mainEle = `#${EleId}`;
   const {
@@ -646,37 +651,61 @@ const Style = ({
     dangerouslySetInnerHTML: {
       __html: `
 
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)('', title?.typo)?.googleFontLink}
 		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)('', typo)?.googleFontLink}
-		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`${mainEle} .bpmb_modal_plugin .bpmb_button_area .btn`, typo)?.styles}
 
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`${mainEle} .bpsmb_modal_plugin .modal_area .title`, title?.typo)?.styles}
+		${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getTypoCSS)(`${mainEle} .bpsmb_modal_plugin .bpsmb_button_area .btn`, typo)?.styles}
 
-		${mainEle} .bpmb_modal_plugin .bpmb_button_area .btn {
+		${mainEle} .bpsmb_modal_plugin .bpsmb_button_area {
+			text-align:${align};
+		}
+
+		${mainEle} .bpsmb_modal_plugin .bpsmb_button_area .btn {
 			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getColorsCSS)(colors)};
 			padding:${(0,_bpl_tools_utils_functions__WEBPACK_IMPORTED_MODULE_2__.getBoxValue)(padding)};
 			border-radius:${radius}px;
 			box-shadow: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getMultiShadowCSS)(shadow)};
 			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBorderBoxCSS)(borders)};
+			width:${isFullWidth ? '100%' : 'auto'};
 		}
 
-		${mainEle} .bpmb_modal_plugin .bpmb_button_area .btn:hover {
+		${mainEle} .bpsmb_modal_plugin .bpsmb_button_area .btn:hover {
 			box-shadow: ${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getMultiShadowCSS)(hShadow)};
 		}
 
-		${mainEle} .bpmb_modal_plugin .modal_area {
+		${mainEle} .bpsmb_modal_plugin .bpsmb_modal_main_area {
+			background:${modal?.outSColor};
+		}
+
+		${mainEle} .bpsmb_modal_plugin .modal_area {
 			width: ${desktop};
 			${(0,_bpl_tools_utils_getCSS__WEBPACK_IMPORTED_MODULE_1__.getBorderBoxCSS)(modal?.borders)};
 			border-radius:${modal?.radius}px;
+			padding:${(0,_bpl_tools_utils_functions__WEBPACK_IMPORTED_MODULE_2__.getBoxValue)(modal?.padding)};
+			background:${modal?.inSColor};
+		}
 
+		${mainEle} .bpsmb_modal_plugin .modal_area svg {
+			fill:${closeIcon?.color};
+		}
+
+		${mainEle} .bpsmb_modal_plugin .modal_area svg:hover {
+			fill:${closeIcon?.hColor};
+		}
+
+		${mainEle} .bpsmb_modal_plugin .modal_area .title {
+			color:${title?.color};
 		}
 
 		@media (max-width: 768px) {
-			${mainEle} .bpmb_modal_plugin .modal_area {
+			${mainEle} .bpsmb_modal_plugin .modal_area {
 				width: ${tablet};
 			}
 		}
 
 		@media (max-width: 576px) { 
-			${mainEle} .bpmb_modal_plugin .modal_area {
+			${mainEle} .bpsmb_modal_plugin .modal_area {
 				width: ${mobile};
 			}
 		}
@@ -705,7 +734,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-const iconColor = '#4527a4';
 const closeIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   fill: "#1e3a8a",
@@ -2137,16 +2165,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const bpmbModalBlockEls = document.querySelectorAll('.wp-block-bpmb-modal-block-plugin');
-  bpmbModalBlockEls.forEach(bpmbModalBlockEl => {
-    const attributes = JSON.parse(bpmbModalBlockEl.dataset.attributes);
-    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(bpmbModalBlockEl).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Common_Style__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  const bpsmbModalBlockEls = document.querySelectorAll('.wp-block-bpsmb-smart-modal-block');
+  bpsmbModalBlockEls.forEach(bpsmbModalBlockEl => {
+    const attributes = JSON.parse(bpsmbModalBlockEl.dataset.attributes);
+    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(bpsmbModalBlockEl).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Common_Style__WEBPACK_IMPORTED_MODULE_3__["default"], {
       attributes: attributes,
-      EleId: bpmbModalBlockEl.id
+      EleId: bpsmbModalBlockEl.id
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Common_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
       attributes: attributes
     })));
-    bpmbModalBlockEl?.removeAttribute('data-attributes');
+    bpsmbModalBlockEl?.removeAttribute('data-attributes');
   });
 });
 /******/ })()

@@ -1,24 +1,35 @@
 import { __ } from '@wordpress/i18n';
-import { PanelBody, TextControl } from '@wordpress/components';
+import { PanelBody, TextControl, ToggleControl, SelectControl } from '@wordpress/components';
 import { TinyEditor } from '../Panel/TinyEditor/TinyEditor';
+import { btnAlignOpt } from '../../../../utils/options';
 
 
-const General = ({ attributes, setAttributes }) => {
-    const { content } = attributes;
+const General = ({ attributes, setAttributes, updateObject }) => {
+    const { content, button } = attributes;
+
     const { btnText, title, desc } = content;
 
-    return <PanelBody className='bPlPanelBody' title={__('Settings', 'modal-block-plugin')}>
-        <TextControl label={__('Button Title', 'modal-block-plugin')} value={btnText} onChange={(val) =>
-            setAttributes({ content: { ...content, btnText: val } })} />
+    return <>
+        <PanelBody className='bPlPanelBody' title={__('Settings', 'smart-modal')} initialOpen={true}>
+            <TextControl label={__('Button Title', 'smart-modal')} value={btnText} onChange={(val) =>
+                setAttributes({ content: { ...content, btnText: val } })} />
 
-        <TextControl label={__('Title', 'modal-block-plugin')} value={title} onChange={(val) =>
-            setAttributes({ content: { ...content, title: val } })} />
+            <TextControl label={__('Title', 'smart-modal')} value={title} onChange={(val) =>
+                setAttributes({ content: { ...content, title: val } })} />
 
-        <TinyEditor
-            value={desc}
-            onChange={val => setAttributes({ content: { ...content, desc: val } })}
-        />
+            <TinyEditor value={desc} onChange={val => setAttributes({ content: { ...content, desc: val } })} />
 
-    </PanelBody>
+        </PanelBody>
+
+        <PanelBody className='bPlPanelBody' title={__('Button', 'smart-modal')} initialOpen={false}>
+            <ToggleControl className='mb20' label={__('Full width', 'smart-modal')} checked={button?.isFullWidth} onChange={val => updateObject("button", "isFullWidth", val)} />
+
+            {
+                !button?.isFullWidth && <SelectControl label="Size" value={button?.align} options={btnAlignOpt} onChange={(val) => updateObject("button", "align", val)} />
+            }
+
+
+        </PanelBody>
+    </>
 }
 export default General;

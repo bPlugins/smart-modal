@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Smart Modal
- * Description: Short description of the plugin
+ * Description: You can quickly display the title and content in a customizable popup modal by using the Smart Modal plugin.
  * Version: 1.0.0
  * Author: bPlugins
  * Author URI: https://bplugins.com
@@ -14,7 +14,7 @@
 if ( !defined( 'ABSPATH' ) ) { exit; }
 
 
-class BPMB_Modal_Block {
+class BPSMB_Smart_Modal {
 	public static $instance;
 
 	private function __construct()
@@ -35,9 +35,9 @@ class BPMB_Modal_Block {
 	}
 	
 	public function defined_constants() {
-		define( 'BPMB_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.0.0' );
-		define( 'BPMB_DIR_URL', plugin_dir_url( __FILE__ ) );
-		define( 'BPMB_DIR_PATH', plugin_dir_path( __FILE__ ) );
+		define( 'BPSMB_VERSION', isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.0.0' );
+		define( 'BPSMB_DIR_URL', plugin_dir_url( __FILE__ ) );
+		define( 'BPSMB_DIR_PATH', plugin_dir_path( __FILE__ ) );
 	}
 
 	public function load_classes() { }
@@ -46,4 +46,4 @@ class BPMB_Modal_Block {
 		register_block_type( __DIR__ . '/build' );
 	}
 }
-BPMB_Modal_Block::get_instance();
+BPSMB_Smart_Modal::get_instance();

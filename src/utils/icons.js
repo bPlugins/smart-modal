@@ -1,5 +1,3 @@
-const iconColor = '#4527a4';
-
 export const closeIcon = <svg xmlns="http://www.w3.org/2000/svg" fill="#1e3a8a"
 	width="20px" height="20px" viewBox="0 0 52 52" enableBackground="new 0 0 52 52">
 	<path d="M31,25.4L44,12.3c0.6-0.6,0.6-1.5,0-2.1L42,8.1c-0.6-0.6-1.5-0.6-2.1,0L26.8,21.2c-0.4,0.4-1,0.4-1.4,0
